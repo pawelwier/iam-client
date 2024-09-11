@@ -1,7 +1,7 @@
 import { FetchMethod, fetchData } from "./controllerUtils"
 
 // TODO: move to .env
-// TODO: code duplicated, match?
+// TODO: code duplicated?
 const API_URL = 'http://localhost:5050'
 
 export const registerUser = async data => {
@@ -20,7 +20,7 @@ export const registerUser = async data => {
 }
 
 export const loginUser = async data => {
-  const url = `${API_URL}/login`
+  const url = `${API_URL}/users/login`
   const { id, name, password } = data
   
   return await fetchData({

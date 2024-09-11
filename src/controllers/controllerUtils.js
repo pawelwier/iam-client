@@ -22,5 +22,10 @@ export const fetchData = async fetchParams => {
     body
   })
 
-  return await res.json()
+  const data = await res.json()
+
+  return {
+    data,
+    status: res.status
+  }
 }
