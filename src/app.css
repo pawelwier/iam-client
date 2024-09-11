@@ -20,6 +20,19 @@ body {
 main {
   height: 100%;
   display: grid;
-  grid-template-rows: 12rem 1fr 2rem 5rem;
+  grid-template-rows: 12rem 1fr 3rem 8rem;
   padding: 0 3rem;
+}
+
+.fake-link {
+  color: var(--color-red);
+  padding: 0 .4rem;
+  cursor: pointer;
+}
+
+/* utils */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

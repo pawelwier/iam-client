@@ -1,5 +1,7 @@
 <script>
 import { loginUser } from '../../controllers/locationController'
+import { isStatusOk } from '../../helpers/httpHelpers'
+import { UserAction, userActionStore } from '../../stores/actionStore'
 import FormError from './FormError.svelte';
 import InputError from './InputError.svelte'
 
@@ -13,7 +15,11 @@ const handleSubmit = async e => {
 
   const { data, status } = await loginUser({ ...myData })
 
-  error = { data, status }
+  if (isStatusOk(status)) {
+    userActionStore.set(UserAction.LOGGED)
+  } else {
+    error = { data, status }
+  }
 }
 </script>
 
@@ -21,7 +27,7 @@ const handleSubmit = async e => {
   on:submit|preventDefault={handleSubmit}
 >
   <div class="login-header">
-    Log in to IAM
+    Log in as IAM user
   </div>
   
   <label>
@@ -68,6 +74,9 @@ const handleSubmit = async e => {
 <style>
 form {
   font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 input[type="text"], input[type="password"] {
@@ -86,7 +95,7 @@ button[type="submit"] {
   color: #FFF;
   font-size: 1.1rem;
   padding: .8rem 3.2rem;
-  margin-top: 1rem;
+  margin-top: 2.7rem;
   background-color: var(--color-red);
   border: none;
   cursor: pointer;
@@ -96,14 +105,16 @@ button[type="submit"]:hover {
 }
 
 label {
+  display: block;
+  margin-top: 1.8rem;
   font-size: .9rem;
   color: var(--color-grey-dark);
 }
 
 .login-header {
-  text-align: center;
+  width: 100%;
   font-size: 1.8rem;
-  padding-bottom: 1rem;
+  text-align: left;
 }
 
 .submit-container {

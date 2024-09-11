@@ -1,13 +1,15 @@
 <script>
+import Footer from './lib/Footer.svelte'
 import Header from './lib/Header.svelte'
-import LoginFormContainer from './lib/login-form/LoginFormContainer.svelte'
+import PageContainer from './lib/PageContainer.svelte'
+import TermsConditions from './lib/TermsConditions.svelte'
 
 
 </script>
 
 <main>
   <Header />
-  <LoginFormContainer />
-  <div>info</div>
-  <div>footer</div>
+  <PageContainer />
+  <TermsConditions />
+  <Footer />
 </main>

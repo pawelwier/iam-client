@@ -5,3 +5,4 @@
 
 export const isInputError = status => [401, 404].includes(status)
 export const isFormError = status => [400, 503].includes(status)
+export const isStatusOk = status => status === 200
