@@ -24,9 +24,27 @@ main {
   padding: 0 3rem;
 }
 
+button:hover {
+  opacity: .8;
+}
+
+button:focus {
+  outline: 0;
+}
+
 .fake-link {
   color: var(--color-red);
   padding: 0 .4rem;
+  cursor: pointer;
+}
+
+.btn-main {
+  color: #FFF;
+  font-size: 1.1rem;
+  padding: .8rem 3.2rem;
+  margin-top: 2.7rem;
+  background-color: var(--color-red);
+  border: none;
   cursor: pointer;
 }
 

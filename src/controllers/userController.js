@@ -4,6 +4,15 @@ import { FetchMethod, fetchData } from "./controllerUtils"
 // TODO: code duplicated?
 const API_URL = 'http://localhost:5050'
 
+export const getUserById = async id => {
+  const url = `${API_URL}/users?id=${id}`
+  
+  return await fetchData({
+    url,
+    method: FetchMethod.GET,
+  })
+}
+
 export const registerUser = async data => {
   const url = `${API_URL}/users`
   const { id, name, password } = data

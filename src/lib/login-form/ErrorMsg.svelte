@@ -8,6 +8,8 @@ export let msg
 
 <style>
 .error-msg {
+  width: 100%;
+  text-align: left;
   font-size: .9rem;
   color: var(--color-red);
 }

@@ -1,14 +1,19 @@
 <script>
-import { UserAction, userActionStore } from '../../stores/actionStore'
+import { UserAction, userActionStore } from '../../storage/actionStore'
 import SysInfo from './SysInfo.svelte'
 import UserBenefitInfo from './UserBenefitInfo.svelte'
 import WelcomePage from './WelcomePage.svelte'
 
+export let userId
+
 $: panelComponent = {
   [UserAction.LOGIN]: SysInfo,
   [UserAction.REGISTER]: UserBenefitInfo,
-  [UserAction.LOGGED]: WelcomePage
 }[$userActionStore]
 </script>
 
-<svelte:component this={panelComponent} />
+{#if userId}
+  <WelcomePage />
+{:else}
+  <svelte:component this={panelComponent} />
+{/if}

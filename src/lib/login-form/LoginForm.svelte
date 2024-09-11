@@ -1,22 +1,28 @@
 <script>
-import { loginUser } from '../../controllers/locationController'
+import { loginUser } from '../../controllers/userController'
 import { isStatusOk } from '../../helpers/httpHelpers'
-import { UserAction, userActionStore } from '../../stores/actionStore'
+import { setUserId } from '../../storage/userStorage'
 import FormError from './FormError.svelte';
 import InputError from './InputError.svelte'
+import RegisterInfo from './RegisterInfo.svelte'
+
+export let userId
 
 let id = '', name = '', password = '', error = null
 
 const handleSubmit = async e => {
   error = null
   const formData = new FormData(e.target)
-  const formDataEntries = formData.entries();
-  const myData = Object.fromEntries(formDataEntries);
+  const formDataEntries = formData.entries()
+  const myData = Object.fromEntries(formDataEntries)
 
   const { data, status } = await loginUser({ ...myData })
 
+  // TODO: refactor
   if (isStatusOk(status)) {
-    userActionStore.set(UserAction.LOGGED)
+    const { id } = data
+    setUserId(id)
+    userId = id
   } else {
     error = { data, status }
   }
@@ -65,10 +71,13 @@ const handleSubmit = async e => {
   <div class="submit-container">
     <button
       type="submit"
+      class="btn-main"
     >
       Log in ›
     </button>
   </div>
+
+  <RegisterInfo />
 </form>
 
 <style>
@@ -90,18 +99,6 @@ input[type="text"], input[type="password"] {
 
 input[type="text"]:focus, input[type="password"]:focus {
   border: 1px var(--color-red) solid;
-}
-button[type="submit"] {
-  color: #FFF;
-  font-size: 1.1rem;
-  padding: .8rem 3.2rem;
-  margin-top: 2.7rem;
-  background-color: var(--color-red);
-  border: none;
-  cursor: pointer;
-}
-button[type="submit"]:hover {
-  opacity: .8;
 }
 
 label {
