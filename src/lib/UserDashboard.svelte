@@ -7,6 +7,8 @@ export let userId
 
 let user
 
+const displayDate = date => new Date(date)?.toLocaleString()
+
 onMount(async () => {
   const userRes = await getUserById(userId)
   user = userRes?.data
@@ -20,7 +22,7 @@ onMount(async () => {
   <div>
     <div>id: <b>{id}</b></div>
     <div>name: <b>{name}</b></div>
-    <div>created at: <b>{createdAt}</b></div>
+    <div>created at: <b>{displayDate(createdAt)}</b></div>
 
     <LogoutBtn bind:userId />
   </div>

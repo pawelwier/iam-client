@@ -1,11 +1,9 @@
 import { FetchMethod, fetchData } from "./controllerUtils"
 
-// TODO: move to .env
-// TODO: code duplicated?
-const API_URL = 'http://localhost:5050'
+const { VITE_API_URL } = import.meta.env
 
 export const getUserById = async id => {
-  const url = `${API_URL}/users?id=${id}`
+  const url = `${VITE_API_URL}/users?id=${id}`
   
   return await fetchData({
     url,
@@ -14,8 +12,8 @@ export const getUserById = async id => {
 }
 
 export const registerUser = async data => {
-  const url = `${API_URL}/users`
-  const { id, name, password } = data
+  const url = `${VITE_API_URL}/users`
+  const { id, name, password, confirmPassword } = data
   
   return await fetchData({
     url,
@@ -23,13 +21,14 @@ export const registerUser = async data => {
     body: JSON.stringify({
       id,
       name,
-      password
+      password,
+      confirmPassword
     })
   })
 }
 
 export const loginUser = async data => {
-  const url = `${API_URL}/users/login`
+  const url = `${VITE_API_URL}/users/login`
   const { id, name, password } = data
   
   return await fetchData({

@@ -1,20 +1,22 @@
 <script>
 import { UserAction, userActionStore } from '../../storage/actionStore'
 
-const onRegister = () => {
-  userActionStore.set(UserAction.REGISTER)
+export let text 
+
+const onBackToLogin = () => {
+  userActionStore.set(UserAction.LOGIN)
 }
 </script>
 
 <div class="form-footer-info">
   <div>
-    New to Securosys Cloud Console?
+    {text}
   </div>
   <button 
     class="fake-link form-footer-btn"
     style="padding-left: 0"
-    on:click|preventDefault={onRegister}  
+    on:click|preventDefault={onBackToLogin}  
   >
-    Create a new Securosys account
+    Go to login
   </button>
 </div>
