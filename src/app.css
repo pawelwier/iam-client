@@ -182,7 +182,7 @@ footer {
 
   /* info box */
   .info-container {
-    padding: 1.2rem 1.75rem;
+    padding: 1.8rem 2.5rem;
   }
 
   .info-container-header {
@@ -211,6 +211,14 @@ footer {
     display: none;
   }
 
+  .form-header, .form-footer-info {
+    text-align: left;
+  }
+
+  .form-label {
+    text-align: left;
+  }
+
   .header-container img {
     width: 85vw;
     min-width: 10rem;
@@ -230,7 +238,11 @@ footer {
     width: 100%;
   }
 
-  /* info page */
+  /* info box */
+  .info-container {
+    padding: 1.2rem 1.75rem;
+  }
+
   .info-container-header {
     font-size: 1.7rem;
     line-height: 2.2rem;
