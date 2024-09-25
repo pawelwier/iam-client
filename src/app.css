@@ -192,6 +192,10 @@ footer {
 }
 
 @media (max-width: 768px) {
+  main {
+    padding: 0;
+  }
+
   form {
     align-items: start;
   }
@@ -219,7 +223,7 @@ footer {
   }
 
   .form-input {
-    width: 80vw;
+    width: 85.5vw;
   }
 
   .submit-container, .submit-container button {
