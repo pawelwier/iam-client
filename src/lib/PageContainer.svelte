@@ -26,12 +26,3 @@ $: formComponent = {
   {/if}
   <InfoPanel {userId} />
 </div>
-
-<style>
-.login-form-container {
-  display: grid;
-  grid-template-columns: 26.75rem 30rem;
-  gap: 6rem;
-  padding-bottom: .7rem;
-}
-</style>

@@ -9,20 +9,3 @@
     Securosys SA. All rights reserved.
   </div>
 </footer>
-
-<style>
-footer {
-  display: grid;
-  grid-template-rows: 2.7rem auto;
-}
-
-.footer-links {
-  gap: 2rem;
-}
-
-.footer-info {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-}
-</style>
